@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupid's Chaos - Dating Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💕 Cupid's Chaos</h1>
+            <div class="red-flag-container">
+                <span class="red-flag-icon">🚩</span>
+                <span class="red-flag-counter">0</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Level 1: Gift Selection -->
+            <div class="level level-1 active">
+                <div class="level-indicator">Level 1/3</div>
+                <h2>Choose a Gift</h2>
+                <p class="subtitle">Pick the perfect gift to impress your date...</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-gift="flowers" data-feedback="She thinks you're too generic. Everyone brings roses!">
+                        <span class="emoji">🌹</span>
+                        <span>Red Roses</span>
+                    </button>
+                    <button class="option-btn" data-gift="chocolate" data-feedback="She's on a diet. Why would you do that?">
+                        <span class="emoji">🍫</span>
+                        <span>Luxury Chocolate</span>
+                    </button>
+                    <button class="option-btn" data-gift="ring" data-feedback="Too fast! You're scaring her away with commitment.">
+                        <span class="emoji">💎</span>
+                        <span>Diamond Ring</span>
+                    </button>
+                    <button class="option-btn" data-gift="teddy" data-feedback="She's 25, not 5. That's embarrassing.">
+                        <span class="emoji">🧸</span>
+                        <span>Giant Teddy Bear</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Level 2: Restaurant Selection -->
+            <div class="level level-2">
+                <div class="level-indicator">Level 2/3</div>
+                <h2>Choose a Restaurant</h2>
+                <p class="subtitle">Where should you take them?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-restaurant="italian" data-feedback="She's allergic to pasta. Should've asked first!">
+                        <span class="emoji">🍝</span>
+                        <span>Cozy Italian</span>
+                    </button>
+                    <button class="option-btn" data-restaurant="sushi" data-feedback="She hates sushi. She told you this already.">
+                        <span class="emoji">🍣</span>
+                        <span>Fancy Sushi Bar</span>
+                    </button>
+                    <button class="option-btn" data-restaurant="steakhouse" data-feedback="She's vegetarian. How did you forget?">
+                        <span class="emoji">🥩</span>
+                        <span>Premium Steakhouse</span>
+                    </button>
+                    <button class="option-btn" data-restaurant="cafe" data-feedback="Café at 8 PM? She wanted dinner, not coffee.">
+                        <span class="emoji">☕</span>
+                        <span>Romantic Café</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Level 3: Conversation Starter -->
+            <div class="level level-3">
+                <div class="level-indicator">Level 3/3</div>
+                <h2>Choose a Conversation Starter</h2>
+                <p class="subtitle">What should you talk about?</p>
+                <div class="options-grid">
+                    <button class="option-btn" data-topic="travel" data-feedback="You're implying she should leave. She left instead.">
+                        <span class="emoji">✈️</span>
+                        <span>Dream Vacation</span>
+                    </button>
+                    <button class="option-btn" data-topic="hobby" data-feedback="You talked about gaming. She wasn't interested.">
+                        <span class="emoji">🎮</span>
+                        <span>Hobbies & Interests</span>
+                    </button>
+                    <button class="option-btn" data-topic="future" data-feedback="Too serious too soon. You scared her away.">
+                        <span class="emoji">🌟</span>
+                        <span>Life Goals</span>
+                    </button>
+                    <button class="option-btn" data-topic="meme" data-feedback="Your memes are ancient. She was not amused.">
+                        <span class="emoji">😂</span>
+                        <span>Memes & Humor</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn nav-prev" id="prevBtn">← Back</button>
+            <button class="nav-btn nav-next" id="nextBtn">Next →</button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="error-modal" id="errorModal">
+        <div class="error-content">
+            <div class="error-icon">💔</div>
+            <h2 class="error-title">Relationship Status</h2>
+            <p class="error-message">It's Complicated</p>
+            <p class="error-feedback" id="errorFeedback"></p>
+            <button class="error-close-btn" id="closeErrorBtn">Got it</button>
+        </div>
+    </div>
+
+    <!-- Congratulations Modal -->
+    <div class="congrats-modal" id="congratsModal">
+        <div class="congrats-content">
+            <div class="congrats-icon">🎉</div>
+            <h2 class="congrats-title">Congratulations!</h2>
+            <p class="congrats-message">You're Single</p>
+            <div class="stats-box">
+                <p class="stats-text">Red Flags Collected:</p>
+                <p class="stats-number" id="finalRedFlags">0</p>
+            </div>
+            <button class="congrats-btn" id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Overlay for modal -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
