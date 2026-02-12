@@ -44,8 +44,14 @@ function setupEventListeners() {
   closeErrorBtn.addEventListener("click", closeError);
   modalOverlay.addEventListener("click", closeError);
 
-  // Play again button
-  playAgainBtn.addEventListener("click", resetGame);
+  // Play again button - show tell me modal instead
+  playAgainBtn.addEventListener("click", showTellMeModal);
+
+  // Tell me modal buttons
+  const tellMeYesBtn = document.getElementById("tellMeYesBtn");
+  const tellMeNoBtn = document.getElementById("tellMeNoBtn");
+  tellMeYesBtn.addEventListener("click", openWhatsApp);
+  tellMeNoBtn.addEventListener("click", handleTellMeNo);
 }
 
 // Handle Option Button Click
@@ -198,6 +204,37 @@ function showCongrats() {
   finalRedFlags.textContent = gameState.redFlagCount;
   congratsModal.classList.add("active");
   modalOverlay.classList.add("active");
+}
+
+// Show Tell Me Modal
+function showTellMeModal() {
+  congratsModal.classList.remove("active");
+  const tellMeModal = document.getElementById("tellMeModal");
+  tellMeModal.classList.add("active");
+  modalOverlay.classList.add("active");
+}
+
+// Open WhatsApp
+function openWhatsApp() {
+  const whatsappNumber = "+94703252747";
+  const message =
+    "Hey! I just played Cupid's Chaos and wanted to tell you something...";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank");
+
+  // Close modals and reset game after opening WhatsApp
+  setTimeout(() => {
+    document.getElementById("tellMeModal").classList.remove("active");
+    modalOverlay.classList.remove("active");
+    resetGame();
+  }, 500);
+}
+
+// Handle Tell Me No
+function handleTellMeNo() {
+  document.getElementById("tellMeModal").classList.remove("active");
+  modalOverlay.classList.remove("active");
+  resetGame();
 }
 
 // Reset Game

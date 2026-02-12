@@ -541,6 +541,102 @@ body {
   transform: translateY(0) scale(0.98);
 }
 
+/* Tell Me Something Modal */
+.tell-me-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: var(--shadow-lg);
+  max-width: 320px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  z-index: 1000;
+  will-change: opacity;
+}
+
+.tell-me-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tell-me-icon {
+  font-size: 72px;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: bounce 0.4s ease-out;
+}
+
+.tell-me-title {
+  font-size: 20px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.tell-me-message {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.tell-me-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tell-me-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-size: 14px;
+  width: 100%;
+}
+
+.tell-me-yes {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+}
+
+.tell-me-yes:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tell-me-yes:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.tell-me-no {
+  background: #f0f0f0;
+  color: var(--text-dark);
+  border: 2px solid #e0e0e0;
+}
+
+.tell-me-no:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.tell-me-no:active {
+  transform: translateY(0) scale(0.98);
+}
+
 /* Animations for level transitions */
 @keyframes slideInRight {
   from {
