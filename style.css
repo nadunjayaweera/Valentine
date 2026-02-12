@@ -451,25 +451,13 @@ body {
 .congrats-modal.active {
   opacity: 1;
   pointer-events: auto;
-  animation: slideUp 0.4s ease-out;
 }
 
 .congrats-icon {
   font-size: 72px;
   margin-bottom: 16px;
   display: inline-block;
-  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  animation: fadeIn 0.4s ease-out;
 }
 
 .congrats-title {
