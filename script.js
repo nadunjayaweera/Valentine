@@ -118,7 +118,83 @@ function handleNextClick() {
 }
 
 // Show Congratulations Modal
+const funnyMessages = [
+  {
+    title: "Mission Failed Successfully",
+    message: "You're Going to Die Alone 💀",
+  },
+  {
+    title: "Game Over!",
+    message: "Relationship Status: TERMINATED 💔",
+  },
+  {
+    title: "Achievement Unlocked",
+    message: "Forever Alone: Expert Edition 🏆",
+  },
+  {
+    title: "Congratulations!",
+    message: "You've Successfully Blocked Every Exit 🚪",
+  },
+  {
+    title: "The End",
+    message: "Love Life: Extinct 🦴",
+  },
+  {
+    title: "Plot Twist!",
+    message: "You're Your Own Love Story 💔",
+  },
+  {
+    title: "Cupid's Revenge",
+    message:
+      "If 'disappointment' was an Olympic sport, you'd be standing on a podium made of unread DMs.",
+  },
+  {
+    title: "Success!",
+    message:
+      "You get to spend the night with your favorite person: The crushing realization of your own company.",
+  },
+  {
+    title: "Victory!",
+    message:
+      "At least your houseplants haven't left you yet. (Check again, they look a bit dry.) 🌱",
+  },
+  {
+    title: "You Won!",
+    message:
+      "You'll die alone, but at least nobody will argue with you about what to have for dinner on the way out. 🍽️",
+  },
+  {
+    title: "Proud Achievement",
+    message:
+      "Your bed is empty, but your bank account is full. Finally, a hierarchy of needs that makes sense. 💰",
+  },
+  {
+    title: "Flawless Victory",
+    message:
+      "You've successfully avoided a breakup in three months. Mostly because you couldn't even start a conversation today. 🤐",
+  },
+];
+
 function showCongrats() {
+  const randomMsg =
+    funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+  const titleEl = document.querySelector(".congrats-title");
+  const messageEl = document.querySelector(".congrats-message");
+
+  // Add animation class for fade-in effect
+  titleEl.classList.remove("msg-fade-in");
+  messageEl.classList.remove("msg-fade-in");
+
+  // Trigger reflow to restart animation
+  void titleEl.offsetWidth;
+  void messageEl.offsetWidth;
+
+  titleEl.textContent = randomMsg.title;
+  messageEl.textContent = randomMsg.message;
+
+  titleEl.classList.add("msg-fade-in");
+  messageEl.classList.add("msg-fade-in");
+
   finalRedFlags.textContent = gameState.redFlagCount;
   congratsModal.classList.add("active");
   modalOverlay.classList.add("active");
