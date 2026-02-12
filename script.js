@@ -72,6 +72,9 @@ function handleOptionClick(event) {
 
   // Visual feedback
   animateButton(button);
+
+  // Enable next button since a choice was made
+  updateNavButtons();
 }
 
 // Increment Red Flag Counter
@@ -102,7 +105,6 @@ function showError(feedback) {
 function closeError() {
   errorModal.classList.remove("active");
   modalOverlay.classList.remove("active");
-  errorModal.style.animation = "none";
 }
 
 // Handle Next Button Click
@@ -273,12 +275,24 @@ function updateNavButtons() {
     prevBtn.disabled = false;
   }
 
-  // Next button
+  // Check if current level has been answered
+  const currentLevelKey = getLevelKey(gameState.currentLevel);
+  const isAnswered = gameState.choices[currentLevelKey] !== null;
+
+  // Next button - disable if no answer selected
   if (gameState.currentLevel === 3) {
     nextBtn.textContent = "Complete ✓";
   } else {
     nextBtn.textContent = "Next →";
   }
+
+  nextBtn.disabled = !isAnswered;
+}
+
+// Get the choice key for current level
+function getLevelKey(level) {
+  const levelKeys = ["gift", "restaurant", "topic"];
+  return levelKeys[level - 1];
 }
 
 // Add some fun Easter eggs and interactions
